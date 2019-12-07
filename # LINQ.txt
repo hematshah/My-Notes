@@ -1,0 +1,6 @@
+# LINQ
+
+Microsoft created a language called LINQ => LANGUAGE INTEGRATED QUERY
+
+QUERIES ARE FAIRLY 
+

@@ -1,0 +1,24 @@
+Monday 2 December : week7 : review
+serialize: switch between raw data and OOP data types eg 10101010101010 to list<Customer>
+task 
+threading'
+process : .exe  running ... call the library(.dll) that is not visible to us
+synchronous: line by line in order
+asynchronous: Mian  thread : call sub-thread(task) to do work
+
+Encoding
+ASCII
+UTF8
+UTF16
+serialize: OOP fixed data into raw data for streaming
+Deserialize: raw data int OOP fixed Data
+Stream : blocks of info over interent eg 2gb movie into tiny blocks
+Buffer: temporary storage are for streaming data in/out
+Cache: temporary storage area (eg website cache is prevoiusly loaded file)
+task:  abstraction over thread
+Thread
+Synchronous 
+Asynchronous
+
+
+ 

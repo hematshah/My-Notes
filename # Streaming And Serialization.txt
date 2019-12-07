@@ -1,0 +1,79 @@
+# Streaming And Serialization
+
+Summary of existing knowledge
+
+encoding : laying down files
+
+ASCII
+UTF8 - web and .NET Core
+
+File Signiture eg .JPG or .DOCX
+
+Stream : chop large files into block of data
+      
+       Binamry type file: .exe .dll .jpg .MOV  which are RAW STREAMS OF 1/0 VERY FAST BECAUSE
+                    NOT CONVERTED TO ANY TYPE. ==> ITS THE WHOLE THING OR NOTHING
+
+       byte[] buffer = new Byte[1024];    // define BLOCK SIZE YOU SENDING A CHUNK
+       //ACCROSS THE INTERENT [BUFFER]
+
+       send all blocks (full)
+       last block may not be full : flush() method to send data anyways
+
+
+       character (text-base)  type-file .TXT   .JSON  .JS  .HTML .CSS .XML .XAML
+
+
+Serialise
+
+   Swap between C# OOP Fixed data types
+
+    class MyClass
+
+       var Instance = new MyClass();
+
+           Serialise : take 'instance' and prepare it to be sent across interent
+
+               remove  METHODS
+               remove Private Fields
+
+               Picture: Serialize is a bit like 'FLAT PACK' furniture from IKEA
+
+
+     in interview senario    -->   Computer                   IKEA
+
+                                    class                      Assembly Instructions
+
+                                    instance                   real thing, built
+      
+                                    serialise our instance           deconstruct and 'flat pack' for 
+                                                                      transport
+
+                                     =====> send across internet           take furniture home
+                                     this is called 'STREAM' to
+                                     FILE/NETWORK/MEMORY(RAM OF PC)
+
+ 
+                                     de-serialise our instance back       rebuild furniture (using instructions)
+                                     into an instance of right
+                                     type of a class
+
+HTTPS <== THE 'S' AT THE END OF HTTP MEANS IT'S IS ENCRYPTED   
+
+
+
+# labs
+
+  we are now going to have a look at
+
+  1) Streaming
+
+        to File System as its's more straightforward
+
+        to http as this will be very common
+
+ 2) Async... Await which is a way of calling methods ASYNCHRONOUSLY  
+ 
+
+
+                                           

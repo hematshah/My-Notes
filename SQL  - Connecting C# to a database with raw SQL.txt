@@ -1,0 +1,70 @@
+SQL  - Connecting C# to a database with raw SQL
+
+Last week we did the 'Hello world' version of connecting c# to SQL database using NOT entity AND not LINQ but Raw SQL INSTEAD
+
+lets finish this app by building a CRUD app which able, edits delets and lists Customers.
+
+
+
+## .NET Core
+
+add 3 rabbits manually to get started in sql
+
+c# 
+
+use entity core(trainer will lead this bit) to connect
+to rabbit DB
+
+Agile : Sprint 0;
+create 100 rabbits, one every interval and display them on the screen as they generate.
+
+.net core : connect to database
+
+add nuget libraries
+
+microsoft.entity.frameworkCore     -v 2.1.1
+                 .sql Server       -v 2.1.1
+                 .design           -v 2.1.1
+
+
+## RabbitDB : Part2
+
+let's extend our work with OOP and creating objects
+
+sprint 0 
+   create 100 rabbits
+    id 1,2,3,4
+    name = "Rabbit" + id RAbbit1 Rabbit2  ((upgrade Rabbit01, rabbit02))
+     Age = 0;
+
+ sprint 1
+    create one rabbit
+    create loop
+       every iteration of loop means age  increase by 1 month
+       Read every rabbit 
+       every rabbit can create 'spawn' one new rabbit (age 0)
+       increase age  of existing rabbits Age++;
+
+  loops go like this
+  
+     Loop              Population    Age
+     before begin        1            0
+     0                   1=>2         1,0
+     1                   2=>4         2,1,0,0
+     2                   4=>8         3,2,1,1,0,0,0,0
+
+
+          repeat loop until population reaches ceiling (say 1000)
+
+ Sprint 2 (Advanced challenge)
+
+    Easy upgrade : set an age below which a rabbit connot produce another rabbit
+
+    eg choose age of 3 then we have to also test for codition
+
+    0
+    1
+    2                     3
+    3                     4 0
+
+

@@ -1,0 +1,37 @@
+Quick fire : friday 22 Nov (end Week 5)
+
+moethod : funtions
+return type: what the method returns
+void: does not return anything
+Action (Delegate) : method type which has not return type
+Class : blueprint or template from which we create objects
+        ((think for BUILDING - the Architect makes the Plans First from which build our Building))
+OOP
+Inheritance Parent Base to child derived 
+Encapsulation private in class
+Member : field / property / method
+Adstraction : use Public 
+
+
+
+
+
+
+
+
+
+Access Modifiers
+private - class
+public  - access in all classes 
+protected - parent / child classes
+internal - namespace ()
+
+
+constructor creates new instance of a class
+static : attached to class not instance
+
+       class Dog{
+             void Bark()    ============> instance method
+             static void Nark2()         
+
+       }

@@ -1,0 +1,127 @@
+# Introduction to Web
+
+lets start by dowloading two copies (C:/ in powershell then run)
+
+1) git clone https://github.com/philanderson888/showcase  find index.html
+
+2) git clone https://.............................../boostrap
+
+
+notes: vectors are scalelable  SVG => scalable vector graphics
+       canvase are NOT scalable only use for gaming character but when you scale it 
+
+--> p5.js --> animations <-- go to website
+--> material UI <-- by google
+
+--> Zurf Design/ vuetify design 
+
+
+Modern web today
+
+install NODEJS.org
+
+ > node -v       PROGRAM  TO RUN ON WINDOWS, LINUX OR MAC
+
+ > npm -v     NODE PACKAGE MANAGER MANAGER INSTALL LIBRARIES JUST LIKE NUGET IN VS/C#
+
+                        ...INTO THE     NODE_MODULES... FOLDERS
+
+
+CHOCOLATEY              A TOOL FOR INSTALLING COMMAND LINE DEVELOPER TOOLS ON A WINDOWS SYSTEMS
+
+ YARN                   UPGRADE TO NPM : INSTALLS LIBRARIES
+
+
+ EXAMPLE
+
+     HELLO WORlD NODE APPLICATION   
+
+     Javascript was INVENTED as a PROGRAMMING LANGUAGE TO RUN NETSCAPE
+     NAVIGATOR EARYLY WEB BROWSER
+
+     When the web took off, also javascript was catapulted into the front line even though it was not a sophisticated language. in fact it had some glaring bugs which exist today!
+
+     netscape => Mozilla => Firefox => chrome dominating web
+
+     But!  Someone had a bright idea to bring JAvascript out of the browser
+     and to run it as a standalone application. why?
+
+
+     Website 
+
+     Client: Browser+Javascript                    Server   PHP?
+                                                            ASP?
+                                                            Java?
+                                                            Phyton?
+
+                                                            Javascript!!!! Node!!
+
+     to run node we just type
+     
+     > node myFile.js
+
+       shortcut for commandprompt ' H and the "tab" ' 
+
+
+RAW HTML, CSS, JAVASCRIPT
+
+How to use Libraries (eg Bootstrap) in 2 ways
+
+1) Download the file locally
+   Advantage: All files under your control
+   Disadvantage : Extra pressure on your web server to deliver files
+                  which it doesn't have to
+
+2) get the files from CDN link (CDN -> Content Delivery Network) 
+
+      Global place for holding common files
+
+           Spaced out across world so yuo use the nearest server to you
+
+
+    Advange : you  don't host these files
+    Disadvantage : none really except careful if OFFLINE USAGE is an issue
+
+    Care ! Check that we have the right file by adding a CHECKSUM TO THE LINK
+
+      IN computing we can test the Intergrity or VALIDITY of the file with
+
+      something we call a HASH or a CHECKSUM
+
+      shal-online.com
+
+      ==> https://haveibeenpwned.com/  <- checking whether my email address has been breached
+
+
+      NOTE: ALT+Shift+F <-- to schow lean way of code
+
+
+      ## Simple Web Tips
+
+      css
+
+          .class  Multiple occurences  <div class = "x">      .x{....}
+
+          #id      One occurence   <div id "y">               #y{....} 
+
+
+          flexbox-used for having semitrical alignment
+
+          grid --> 
+
+          edwardo rosas <-- android studio xaml froms on visual studio 
+
+
+
+          ********************************************************************************************************************************************************************************************************************************************************************
+
+
+     NOTE   ==> blazor -> new way of having c# code compiler run inside the browser itself
+                running on the client side
+
+
+            ==> Razor  ->   {conversion from C# into HTML,CSS,JS}
+            
+                
+
+

@@ -1,0 +1,532 @@
+# SQL
+
+## Talking to a database
+
+In industry we have the full SQL Server (paid product) but it's quite large and a little bit tricky to set up and configure.  So here at Sparta we don't really get into installing SQL server by itself.
+
+	Real workplace ==> DBAdmin would do this for you.
+
+2 options for using SQL
+
+	1) Docker
+
+		Pre-made SQL server
+
+			Access via SSMS Management Studio (large) 
+			or
+			Azure Data Studio
+
+	2) Visual Studio has its own SQL server environment
+
+Docker commands
+
+	docker ps  	list running instances
+
+	docker ps -a   list all instances, running or not
+
+	docker start sql
+
+	Talk to database using SSMS or Azure Data Studio
+
+
+Visual Studio
+
+	Install from scratch the Northwind database
+
+		We are going to use the LOCALHOST
+
+			Connection Details are (localdb)\mssqllocaldb   FOR SERVER NAME
+
+
+
+
+### Simple SQL Commands : Creating Structures
+
+use master
+go
+
+	==> CONTEXT OF A BUILT-IN DATABASE SO DON'T GET ERROR 'DATABASE IN USE'
+
+
+```sql
+create database testDB
+drop database if exists testDB
+
+create table table01
+drop table if exists table01
+```
+
+
+
+
+### Primary Key
+
+```sql
+drop table if exists testTable
+drop table if exists testTable2
+go
+
+create table testTable(
+	testTableId INT,
+	testName VARCHAR(20)
+)
+
+INSERT INTO testTable values (1,'Fred')
+
+SELECT * FROM testTable
+
+/* auto increment */
+-- we use IDENTITY TO AUTO INCREMENT THE ID
+-- IDENTITY(start value,increment)
+-- IDENTITY(1,1)
+create table testTable2(
+	testTable2Id INT NOT NULL IDENTITY(1000,10),
+	testName VARCHAR(20)
+)
+
+INSERT INTO testTable2 values ('Bob')
+INSERT INTO testTable2 values ('Tim')
+INSERT INTO testTable2 values ('Mark')
+SELECT * FROM testTable2
+```
+
+
+### Null
+
+-- NULL AND NOT NULL
+-- every column is NULL or NOT NULL 
+
+
+
+
+
+
+
+
+
+## CREATE TABLE WITH FOREIGN KEY
+
+```sql
+
+```
+```sql
+/* FOREIGN KEY 
+
+	Customers
+		CustomerID   PRIMARY KEY
+
+	Orders
+		OrderID      PRIMARY KEY
+		CustomerID   FOREIGN KEY (PRIMARY KEY IN ANOTHER TABLE)
+*/
+
+DROP TABLE IF EXISTS Orders
+DROP TABLE IF EXISTS Customers 
+GO
+CREATE TABLE Customers(
+	CustomerId INT NOT NULL IDENTITY PRIMARY KEY,
+	CustomerName VARCHAR(50) NULL,
+	IsDeleted BIT NULL,
+	DateCreated DATETIME NULL
+)
+
+CREATE TABLE Orders(
+	OrderId INT NOT NULL IDENTITY PRIMARY KEY,
+	TotalValue FLOAT NULL,
+	CustomerId INT NULL,
+	FOREIGN KEY (CustomerId) REFERENCES Customers (CustomerId)
+)
+
+/* create 2 customers and one order with customer 2 (ID) */
+INSERT INTO Customers VALUES ('Bill',1,'2019-11-13')
+INSERT INTO Customers VALUES ('Tina',0,GetDate())
+INSERT INTO Orders VALUES(100.37,2)
+INSERT INTO Orders VALUES(200.37,2)
+SELECT * FROM CUSTOMERS 
+SELECT * FROM ORDERS 
+
+SELECT COUNT(*) FROM CUSTOMERS 
+
+```
+
+
+
+## Alias
+
+Some columns do not have names or the existing names are not good enough.
+
+In every query we can always use 'AS' keyword to rename columns
+
+Actually the 'AS' keyword is OPTIONAL
+
+```SQL
+SELECT COUNT(*) as 'Number Of Customers' FROM CUSTOMERS 
+SELECT COUNT(*)    'Number Of Customers' FROM CUSTOMERS 
+```
+
+Alias names useful in long queries
+
+```sql
+SELECT * FROM ORDERS o
+INNER JOIN CUSTOMERS c
+ON o.CustomerID = c.CustomerID
+```
+
+
+## Simple SQL Queries
+
+```sql
+
+-- TOP
+SELECT TOP 10 * FROM CUSTOMERS 
+
+
+-- ORDER BY
+SELECT TOP 10 * FROM CUSTOMERS ORDER BY CustomerID DESC
+
+
+-- EMPLOYEES IN LONDON
+SELECt * from Employees 
+SELECt * from Employees where City = 'London'
+
+-- EMPLOYEES WHO ARE A DOCTOR
+SELECT * FROM Employees
+SELECT * FROM Employees where TitleOfCourtesy = 'Dr.'
+-- PRODUCTS DISCONTINUED
+
+SELECT * FROM Products Where Discontinued = 1
+
+-- NUMBER OF CUSTOMERS 91
+Select Count(*) 'Number of Customers' From Customers
+-- NUMBER OF PRODUCTS 77
+-- NUMBER OF ORDERS 830
+-- LIST PRODUCT CATEGORIES
+SELECT * FROM Categories
+
+-- how many discontinued products where categoryid=1  // answer is 1
+select count(*) from Products Where CategoryID = 1 and Discontinued = 1
+
+
+```
+
+
+### Statistical functions COUNT AVG MIN MAX SUM
+
+```sql
+-- Products in stock   72  (UnitsInStock>0)
+SELECT COUNT(*) FROM PRODUCTS WHERE UnitsInStock>0
+-- Products in stock and not discontinued    68 
+SELECT COUNT(*) FROM PRODUCTS WHERE UnitsInStock>0 AND Discontinued != 1
+-- Products in stock > 29.99      >=     30.00     UnitPrice       22
+SELECT COUNT(*) FROM PRODUCTS WHERE UNITSINSTOCK>0 AND UnitPrice>29.99
+-- Products showing Product, UnitPrice and UnitsOnOrder
+SELECT ProductName,UnitPrice,UnitsOnOrder FROM Products
+-- Products as above and (UnitPrice*UnitsOnOrder) as OrderValue
+SELECT ProductName,UnitPrice,UnitsOnOrder, (UnitPrice*UnitsOnOrder) as OrderValue FROM Products 
+WHERE UnitsOnOrder>0
+-- As above but SELECT SUM(UnitPrice*UnitsOnOrder) as OrderValue 
+-- ie Total value of orders in pipeline??? 14377.50
+SELECT SUM(UnitPrice*UnitsOnOrder) as TotalOrderValue from Products;
+-- Statistical values MAX MIN AVERAGE SUM WHERE UNITSONORDER>0
+-- repeat and get MAX ORDER VALUE, MIN ORDER VALUE, AVERAGE ORDER VALUE
+-- max 2,660
+-- min 125
+-- average 845.7352
+SELECT AVG(UnitPrice*UnitsOnOrder) as TotalOrderValue from Products
+WHERE UnitsOnOrder>0
+-- ROUND TO 2DP
+SELECT ROUND(AVG(UnitPrice*UnitsOnOrder),2) as TotalOrderValue from Products
+WHERE UnitsOnOrder > 0;
+
+select CONVERT(DECIMAL(5,2),AVG(UnitPrice*UnitsOnOrder)) as 'Avg Order Value' 
+from Products where UnitsOnOrder > 0;
+
+-- repeat for order details
+SELECT ProductId,UnitPrice,Quantity, 
+(UnitPrice*Quantity) as OrderValue,*
+FROM [Order Details] 
+WHERE Quantity>0
+-- get total of all orders on order 
+-- sum  1,354,458.59
+SELECT Sum(UnitPrice*Quantity) as TotalOrderValue FROM [Order Details] WHERE Quantity>0
+-- avg  628.519
+SELECT AVG(UnitPrice*Quantity) as TotalOrderValue FROM [Order Details] WHERE Quantity>0
+-- min  4.8
+-- max  15,810
+
+
+-- add another column for discount 
+-- so we list Product, UnitPrice, Quantity and Discount
+SELECT ProductName,UnitPrice,UnitsOnOrder, 
+(UnitPrice*UnitsOnOrder) as OrderValue,*
+FROM Products 
+WHERE UnitsOnOrder>0
+SELECT * FROM [ORDER DETAILS]
+-- now add another column showing the order value with discount applied
+```
+
+
+
+
+
+
+## SQL day 2
+
+
+Teaser 10 minute exercise
+
+	Categories
+		CategoryId
+		CategoryName
+
+	ToDo 
+		ToDoId
+		Description
+		bool Done
+		Date DateCompleted
+		FOREIGN KEY : CategoryId
+
+	3 Categories
+	3 To Do Items using all data fields
+
+	SQL Script 
+		Create database ...
+
+
+
+## Data Types
+
+CHAR(5) 			   FIXED LENGTH 5 CHARACTERS
+VARCHAR                DEFAULT STRING   VARIABLE LENGTH CHARACTER STRING  (ASCII STANDARD)
+NVARCHAR               32 BITS PER CHARACTER (UNICODE EG CHINESE SYMBOLS ETC)
+          (30)         MAX LENGTH
+
+
+
+### COMMAND TYPES
+
+DML  DATA MANIPULATION : CRUD : INSERT, READ, UPDATE, DELETE
+DDL  DATA DEFINITION   : CREATE/DROP  ALTER   TRUNCATE (REMOVE DATA)
+DCL CONTROL (PERMISSIONS)  GRANT/REVOKE
+TCL TRANSACTION CONTROL : COMMIT/ROLLBACK  
+
+								Group transactions and either 100% commit or rollback
+
+						   SAVEPOINT ... middle point
+
+
+## Help and MetaData
+
+// get metadata about 1 table
+SP_Help  Table01
+
+// list all DATABASES ON YOUR SERVER
+select * from sysdatabases
+
+// list all TABLES
+select * from sys.tables
+
+// list all FIELDS IN USE
+select * from sys.objects
+
+
+
+## Normal Form
+
+Normal form aims to ensure that there is always only ONE COPY OF ANY BIT OF DATA 
+		IN THE DATABASE
+
+		eg Mobile Phone number ==> if it appears twice and user calls up to change it, 
+				which instance do we change?  
+
+	3 forms 
+
+
+	1st Normal Form
+
+		ONE FIELD HOLDS ONE PIECE OF DATA
+
+				Mobile Phone      0723452345  073453454     not allowed
+
+	2nd Normal Form
+
+		FIELDS DEPEND ON PRIMARY KEY
+
+			CustomerId  CustomerName  PostCode  SupplierID (OK) SupplierPostcode (NOT OK)
+
+	3rd Normal Form
+
+		NO INTERDEPENDENCE BETWEEN NON-PRIMARY KEYS
+
+			CustomerId  CustomerName  PostCode  SupplierID (OK) SupplierPostcode (NOT OK)
+												================related==================
+
+
+
+
+## Distinct 
+
+Select City from Customers
+Select DISTINCT City from Customers
+
+
+```SQL
+select city from customers
+select count(city) from customers 
+
+select 'But how many UNIQUE CITIES do we have?'
+select count(distinct city) from customers 
+select distinct city from customers 
+select 'Unique COUNTRIES?  21'
+```
+
+
+## IN keyword for multiple searches
+
+Replace 'OR' keyword when multiple items
+
+Select * from customers where city IN ('London','New York','Paris')
+
+```sql
+select 'How many people live in London & Sao Paulo
+ and Madrid combined - 13'
+select count(*) from customers where city in ('london','sao paulo','madrid')
+
+
+```
+
+
+
+
+## STRING SEARCH 
+
+### LIKE   (MATCHES FOLLOWING PATTERN)
+
+    where item like .....  
+
+              Starts with ch        'ch%'
+              Ends                  '%ch'
+              Contains              '%ch%'
+
+    letter combination eg in range A-E
+
+    		starts with letter A/B/C/D/E       '[A-E]%'    OR   '[ABCDE]%'
+
+            NOT equivalent                     '[^A-E]%'
+              ie first letter NOT A/B/C/D/E
+
+    % wildcard for unlimited letters
+    _              one letter
+
+
+             like '_BC'
+
+             				ABC     BBC    EBC  (YES)              DDBC(NO)
+
+
+
+
+-- GROUP BY
+-- GROUP BY is used with our STATISTICAL FIELDS
+-- use to group results by the sum/count etc on a particular column
+
+SELECT COUNT(CITY) from CUSTOMERS 
+SELECT CITY from CUSTOMERS ORDER BY CITY 
+
+SELECT COUNT(CustomerID) AS 'COUNT',CITY 
+FROM CUSTOMERS 
+GROUP BY CITY 
+HAVING COUNT(CustomerID)>1
+ORDER BY COUNT(CustomerID) desc
+
+
+SELECT COUNT(CustomerID) AS 'COUNT',COUNTRY 
+FROM CUSTOMERS GROUP BY COUNTRY 
+
+
+
+SELECT COUNT(CustomerID) AS 'COUNT',CITY 
+FROM CUSTOMERS 
+WHERE CITY IN ('London','Madrid','Sao Paulo')
+	GROUP BY CITY 
+	HAVING COUNT(CustomerID)>1
+ORDER BY COUNT(CustomerID) desc
+
+
+
+```SQL
+use Northwind
+go
+select * from customers
+
+
+select city from customers
+select count(city) from customers 
+
+select 'But how many UNIQUE CITIES do we have?'
+select count(distinct city) from customers 
+select distinct city from customers 
+select 'Unique COUNTRIES?  21'
+
+select 'How many people live in London & Sao Paulo
+ and Madrid combined - 13'
+select count(*) from customers where city in ('london','sao paulo','madrid')
+
+-- LIKE 
+
+select 'find all products where name starts with ch'
+SELECT count(productname) from products where ProductName LIKE 'ch%'
+SELECT productname from products where ProductName LIKE 'ch%'
+
+select 'find all products where name contains ch'
+SELECT count(productname) from products where ProductName LIKE '%ch%'
+SELECT productname from products where ProductName LIKE '%ch%'
+
+select 'find all products where name starts A/B/C'
+SELECT count(productname) from products where ProductName LIKE '[ABC]%'
+SELECT productname from products where ProductName LIKE  '[ABC]%'
+
+select 'find all products where name starts A-M'
+SELECT count(productname) from products where ProductName LIKE '[A-M]%'
+SELECT productname from products where ProductName LIKE  '[A-M]%'
+
+
+
+-- GROUP BY
+-- GROUP BY is used with our STATISTICAL FIELDS
+-- use to group results by the sum/count etc on a particular column
+
+SELECT COUNT(CITY) from CUSTOMERS 
+SELECT CITY from CUSTOMERS ORDER BY CITY 
+
+SELECT COUNT(CustomerID) AS 'COUNT',CITY 
+FROM CUSTOMERS 
+GROUP BY CITY 
+HAVING COUNT(CustomerID)>1
+ORDER BY COUNT(CustomerID) desc
+
+
+SELECT COUNT(CustomerID) AS 'COUNT',COUNTRY 
+FROM CUSTOMERS GROUP BY COUNTRY 
+
+
+
+SELECT COUNT(CustomerID) AS 'COUNT',CITY 
+FROM CUSTOMERS 
+WHERE CITY IN ('London','Madrid','Sao Paulo')
+GROUP BY CITY 
+HAVING COUNT(CustomerID)>1
+ORDER BY COUNT(CustomerID) desc
+
+
+select 'List all products but group by category and
+give the number of products in each category'
+select count(productID), categoryID from Products
+group by categoryid
+select 'how many products in category where categoryid=2'
+select count(productName), categoryID from Products 
+where categoryID = 2
+group by categoryid
+
+
+```

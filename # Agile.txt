@@ -1,0 +1,297 @@
+# Agile
+
+## Review of the current knowledge
+
+Epic - overall project 'container'
+
+Backlog = list of stasks ('requirements')
+
+User Stories - each task is written out vin a form which a non-tech person can understand
+
+Sprints - select certain items from Backlog and set a goal to complete those few items in a period of time 1-4 weeks
+
+Strum : Way of building software
+
+Scrum master : helps the flow of the work (admin of the work)
+
+kanban - environment where work never stops - flow of work rather than discrete sprnts
+
+
+
+## agile intro
+
+## waterfall
+
+first project built using a straight-lformwatrd mmethod called Waterfall
+
+SDLC Software DEVELOPMENT lIFE Cycle
+
+Feasibility Study - initail upfront analysis to see if the project is a good idea.
+
+ROI -> return on investment
+
+   money spent : money returned <- ratio
+
+   How much will it cost?   Expected income back?
+
+   Inverstor invest £100 - if he can get £110 back at the end of the year ROI 10%
+
+
+Analysis
+     
+      Requirement gathering
+
+           talk to customer and find out what is their NEED FOR THIS PROJECT?
+
+               face to face, phone, surveys etc
+
+           requirments engineering
+
+             ==> .LIST.OF.REQUIRMENTS.(this.is.the.project!)
+
+             BACKLOG = LIST OF REQUIREMENTS
+
+architecture = high level design
+
+    project planning
+        TIMESCALE
+        BUDGET     A) OVERALL BUDGET   B) IMMEDIATE CASH FLOW
+        MANPOWER
+        RESOURCES EG BUILDING ETC   
+
+
+    TECHNICAL
+       OS : WINDOWS OR MAC OR LINUX : ANDROID/IOS MOBILE
+       Proggraming language : Web/OOP  C#, java , Python, Go <- google PL
+       Legacy Environment
+           Greenfield.project - startup with NO LEGACY TO WORRY ABOUT
+           Brownfield - tie in to legacy
+
+
+           Constrians : ristrictions
+             Legal
+             Industry code of conduct
+             Timescale
+             budget constaints high level
+
+
+
+Low level design
+
+    'specification'   ie detail of the project  ** instructions for coders  **
+
+        UI User Interface  : visual element, what the user SEES
+        UX User  Experience : flow of screens together, how the app responds and feels
+                  -is the flow natural, is the app easy to use 'intuitive'
+
+
+ Build
+    
+     Testing
+
+         Note
+
+            TDD --> Test Driven Development means WRITE TESTS FIRST !
+                     RED  ................... CODE FAILS TEST INITIALLY
+                     GREEN ...................... CODE WRITTEN AND PASSES TEST
+                      REFRACTOR ...................... MORE EFFIENT
+
+
+             BDD TESTS IN HUMAN-FRIENDLY LANGUAGE (THINK USER STORIES)
+               BEHAVIOUR DRIVEN DEVELOPEMENT (SELENUIM, CUCUMBER, GHERKIN SYNTAX)
+
+ Note      --> "blazor" --> web assemble in C#
+
+  #### agile : summary so far
+
+  SDLC stages
+
+     feasibility study : is the project feasible
+     Analysis : Customer Requirements (BACKLOG - LIST OF REQUIREMTNS)
+     ARCHITECTURE : HIGH LEVEL DESIGN
+     DESIGN : LOW LEVEL (DETAILED 'spec')
+
+       UI
+       UX
+       Technical
+       Build
+       Test
+
+
+ Release to production
+ 
+    CI/CD Pipeline
+    CI -> continuous integration(github code)
+    CD -> continuous Deployment (Deployment small commits very often)  
+
+    pipeline : code => Test => Send to production all in one automatic flow  
+
+
+ Ongoing maintance 
+ 
+    help desk
+
+         Issues
+           1) bug fix
+           2) new feature request -- > request to inhance the features
+
+           Documentation
+           1) User
+           2) Technical
+
+Waterfall model
+   fixed model
+     Analysis => design=> Build=> test=> Release in one flow
+
+        maintenance next
+
+    advantages
+      good for smaller, repeatign projects
+        car factory => software between models won't change much
+      good for projects where safety and spability are the proirity
+          
+          Bridge/ Dam ==> software to be robust
+          Military / mission critical
+
+             v-model is --> waterfall plus extra testing 
+                                             
+
+
+
+
+
+            User list of requirements                              UAT  User          
+                  (backlog)                                        Acceptance testing
+                                                                   ( user confirms that you have built the software correctly)
+                   Working System                              System Testing 
+                   Join modules together              Integration testing
+                          Code modules (Unit)  --> unit testing  
+
+
+Disadvantages of waterfall
+    
+        Often whole process from start to finish can take several months.
+        Requirements can CHANGE !!  MESS UP WHOLE PROJECT!!!
+        WATERFALL : INFLEXIBLE
+
+
+
+
+Agile
+   Agile manifasto
+
+       Embrace certain values
+
+           WORKING SOFTWARE OVER DOCUMENTATION (VALUE BROUGHT  IS ONLY MEASURED IN ACTUAL WORKING CODE)
+
+           FACE TO FACE COMUNICATION IS ALWAYS BEST (DAILY STANDUP)
+
+           COLLABORATION OVER NEGOTIATION (IE CUSTOMER IS SOMEONE WE WORK WITH)
+
+           EMBRACE CHANGE OVER FOLLOWING A PLAN (TO A POINT OF REASON OF COURSE)
+
+           BUSINESS CONDITIONS MAY CHANGE AT SHORT NOTICE
+
+
+Scrum
+   Scrum is the PRACTICAL OUTWORKING OF AGILE
+
+    over the years we've had diffrent names
+
+        XP Extreme Programming (Pair programming)
+        Lean (build)
+
+    Today scrum is accepeted as 'norm' for programmers working together scrum.org 
+    
+
+    3 roles
+
+       scrum master    not in charge ! servant-enabler to whole team,
+                       remove  'blockers' (hindrances) to team
+                       organise meetings, book rooms, admin around team
+
+         product owner go-between between Dev team and customer
+
+                        DEV ---------  PRODUCT OWNER ------------ CUSTOMERS
+                                         BACKLOG
+                                     LIST OF REQUIREMENTS
+
+
+         dev team  SELF - ORGANISING             
+                    JOINTLY -RESPONSIBLE FOR COMMITMENTS MADE
+                    (UNDER - PROMISE AND OVER DELIVER)
+                    3-9 people
+
+
+Summary so far  : agile
+
+   Mainfesto : thinking behind it
+
+
+   roles               Strum master (enabler)
+                       Product  owner     client go-between & owns BACKLOG LIST
+                        Dev team          3-9 people, self organising, multi-skilled
+
+
+   Agile in practice
+
+      BACKLOG => LIST OF REQUIREMENTS I.E. BUILD THIS!
+
+          USER STORIES => HUMAN SIDE OF BACKLOG REQUIREMENTS
+
+             WEIGHT (PRIORITY)
+             COST   (DEGREE OF DIFFICULTY)
+
+   SPRINT 0 - FIRST SPRINT
+      
+       GOAL : PRODUCE 'MVP' MINIMUM VIABLE PRODUCT IE FIRST WORKING VERSION, AS SIMPLE AS POSSIBLE
+
+        EACH SPRINT : 4 MEETHINGS
+
+          SPRINT PLAN        select 'for developement' one or two features from MAIN BACKLOG.
+                              create 'SPRINT BACKLOG'
+                              plan timescale eg 2 weeks
+                              Define 'DONE' EG PASSING X TESTS
+
+          DAILTY STANDUP      DID YESTERDAY, DOING TOTAY, BLOCKERS(PROBLEMS)
+
+          SPRINT REVIEW       INVITE THE CUSTOMER TO VIEW OUR FININSHED PRODUCT I.E. (ITTERATION / VERSION)
+                                (Working software is measure of success)
+
+          SPRINT RETRO        Retrospective - internal review privately of what went good/bad/could improved
+
+note --> we prioratize working software over documentation when we say 
+
+
+   SPRINT 1,2,3,4 ETC UNTIL FINAL PRODUCT IS BUILT
+
+    IDEA IS THAT GOALS (BACKLOG) CAN CHANGE. SPRINTS SMALL HELPS US TO BE 'AGILE' AND TO BE SENSITIVE TO CLIENT IF THEY NEED CHANGE.
+
+
+    BUTT!!!
+
+
+         use our proffesional skills   TO GIUDE COSTOMER IN ANY DECISIONS  /  THOUGHT PROCESSES WHICH THEY WANT CHANGE I.E. SPEC.
+         Don't let them just be unprofessional in the way they change spec
+
+    Sprints help because they provide CLEAR, PRECISE PERIODS OF WORK WITH A CLEAR GOAL
+    
+
+
+    OTHER TYPES OF AGILE
+
+       KANBAN
+
+            JIT --> Just In Time : lean process for delivery at the right time to minimise high stock levels
+
+              Kanban is a developemtn METHODOLOGY  (WAY OF DOING WORK) SUCH THAT THE WORK NEVER STOPS BUT IS GOING 24/7
+
+              AND useful for eg manufacturing plants
+
+              BACKLOG      SELECTED FOR DEV     IN PROGRESS     FOR REVIEW     COMPLETE
+
+
+                                              LIMIT
+                                              AMOUNT
+                                              HERE     
+                 

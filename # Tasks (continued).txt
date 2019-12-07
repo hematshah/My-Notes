@@ -1,0 +1,40 @@
+# Tasks (continued)
+
+We had earlier discussed about
+
+   CPU  
+   ... runs THREADS
+   ... AND ON PROCESS CAN HAVE MULTIPLE THREADS
+   .. AND WE CAN SEE EACH PROCESS AS A .EXE IN TASK MANAGER
+
+   Threadf .. set of instructions to CPU 
+   process ... .exe running live in mememory
+
+
+    Two Types Of Process
+
+        - Backgrpund Service Computer Startup (no user present)
+        - application User log on and run the app (after login)
+
+
+        Services : view with 'get-service' or 'Services' snap-in
+
+        .exe(..) ... multiple threads ... alk to CPU
+
+
+  Within our Application
+  
+    we have our main thread which always starts
+
+        synchronous : WAIT ALWAYS
+        Asynchronous : Create SubTasks to do our work - Application IS FAST
+
+        Older versions 
+           Threading : DETAILED AND DIFFICULT TO GET RICHT (OVERHEAD)
+
+        currently 
+            
+            TASKS : Abstractionm OVER TASK IE microsoft does a lot of work for you
+
+
+                      

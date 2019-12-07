@@ -1,0 +1,52 @@
+ # tech revision
+
+ class --> is a blueprint or a template for creating NEW OBJECTS(instances){field:value} 
+
+ field --> has no validation: often kept private privateField or _privateField camelCase javascript
+ pascalCase OOP
+ kebab-case web page like this.html
+ sake_case sql_database_like_this.sql
+ (space) %20
+ 
+ property often public; can provide validation; {get; set;} (can expand)
+ method
+ instance
+ new
+ constructor
+ static
+ private
+ public 
+ protected
+ internal
+ Access Modifier
+
+
+ linear programming
+ compiler --> high level C# ==> intermmediate --> run with CLR Runtime
+ EXE
+ Dll
+ Assembly
+ OOP
+ Encapsulation
+ Abstraction
+ Polymorphism
+ override
+ overload
+ sealed class
+ abstract class
+ interface
+
+
+ poject structure
+
+    .sln solution : is a container in which we put projects
+                      no funtionality :  just simply a holding container
+
+       
+         .CRPROJ  : project file : metadata for each project eg library versions
+
+         OBJ : Libraries : can delete
+         BIN : binary : compiled files ready to run
+
+         program.cs
+             START POINT MAIN(){}

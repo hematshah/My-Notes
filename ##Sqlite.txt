@@ -1,0 +1,47 @@
+##Sqlite
+
+sqlite3               Environment 
+sqlite3               Mdatabase.db create database
+.quit                 Exist Environment
+.databases            Show databases
+.open Mydatabase.db   Use this database
+.tables               Show tables
+
+
+Autoincrement : declare the id as integer primary key(not 'int')
+
+sqlite> create table Table02(Id integer primary key, name varchar(50));
+sqlite> insert into Table02 (name) values ('Mike');
+sqlite> insert into Table02 (name) values ('James');
+sqlite> insert into Table02 (name) values ('Nick');
+
+update Table02 set name = 'new name' where id=2;
+delete from Table02 where Id = 3;
+
+
+## Create Northwind database from sqlite script
+
+dowload .sql script for SQLite to install northwind
+
+
+run script using 
+
+CMD > sqlite3 Northwind.db < InstallNothwindSQLite.sql
+
+Access data using
+
+ CMD:sqlite3
+ sqlite> .open Northwind.db
+ sqlite>   select * From customers;
+
+ ## talking to SQLIte database using C#
+
+ we can upgrade our code to use SQLite by doing following
+
+ 1) Nuget
+
+      install package microsoft.entity.frameworkcore.sqlite -v2.1.1
+
+ 2)  builder.UseSqlite(@"Data Source = PATH")
+        PATH = C:\Engineering\Sqlite\Northwind.db    
+

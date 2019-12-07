@@ -1,0 +1,42 @@
+## outputting SQL to an excel file
+
+c# we are looking at running Word and excel from c#
+
+all languages though have a mutch simpler way to create spreadsheets
+
+  .CSV Comma Saparated Values
+
+  .Txt  file 
+
+
+
+
+
+# sql join types
+
+INNER               STANDARD SELECT:  ONLY RECORDS FROM A WHERE ALSO MATCH IN B
+
+LEFT (OUTER)        EVERY RECORD IN A PLUS MATCHING IN B
+
+RIGHT  (OUTER)      EVERY RECORD IN B PLUS MATCHING IN A
+
+FULL                EVERY RECORD IN BOTH TABLE(NULLS AND ) 
+
+
+SELECT 'DISCOUNT'
+
+    PRODUCT UNITPRICE   15
+
+    ORDER DETAILS DISCOUNT  0.10
+    UNITS                   100
+
+    WHAT DOES THE CUSTOMER PAY?
+
+    GROSS : RAW     100*15
+    NET   : AFTER DISCOUNT      DICOUNT = 0.1 * (100*15)
+
+    PRICE PAID   (1- DISCOUNT) * GROSS PRICE
+
+                   1-0.10 = 0.9  * 1500(100 *15) => 1350
+
+                   

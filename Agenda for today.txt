@@ -1,0 +1,161 @@
+Agenda for today
+
+MVC Framework EF6 - pull in database ***Might try NOT DATATBASE FIRST ENTITY (which we have used)
+
+BUT CODE FIRST ENTITY****
+
+REPEAT using EFcore - pullt database
+
+
+Razor pages which is C# in the brower
+
+ASP Framework : Points to note from Yesterday
+
+lets look at project in detail
+
+App_Data folder: where our database can live : Either .mdb proper database(Microsoft Database File)
+although the default location is in your USer Profile ie C:\User\HematShah\SQL\Northwind.mdb
+
+| Datadirectory\Northiwind.mdb
+
+or of course we cpould use SQLite and give similar path
+
+
+Content
+     Public content eg script sent publicly to client
+
+      Rest of code is hidden (C# is hidden at server , turned into HTML)
+
+ 
+Font
+  File obtained from web 
+        .eot -> extended open type
+        .ttf -> True Type Font
+        .woff -> web open form format
+
+        ==> DownLoad a FONT FILE AND LINK TO INT IN CSS
+
+
+        Web.Config (and app.Config)
+               
+               When we build and run our application we 'compile' the code.
+
+               This code is generated as MACHINE BYTE-CODE which operates at LOW LEVEL and talks to the 
+               Processor directly
+
+                  Config files are used in applications to provide A MECHANISM FOR CHANGING SETTING 
+                  WITHOUT RE-COMLIEMIG .  AT RUNTIME WE CANC ALTER VARIOUS SETTINGS
+
+
+                     THINGS WE MIGHT WANT TO ALTER
+
+                        1) database path between development and production
+                        2) Security strings (API keys) 
+
+
+# MVC
+
+   AS stated 
+    M -> Model (data)
+    V -> View  (Page)
+    C -> Controller (URL handling)
+
+            Domain.com/Controller/Action.../Id
+                      /Table... / GET      / ALFKI
+
+
+
+                      /        /         Index VIEW
+                      /Home    /About    About VIEW
+                      /home    /Contact  Contact VIEW
+
+
+          
+    Request  page
+       check  https://domain.com/Home/About   part and in code, go to HomeController.cs file
+                
+                In HomeController.cs file look for the About() method   ((Action))
+
+                In this method , can get dtata if needed
+
+
+
+var products = db.Products.Include(p => p.Category).Include(p => p.Supplier);
+            return View(products.ToList());  <========== INNER JOIN USING .INCLUDE AS SUPPOSE WRITING A QUERY
+
+
+#mvc core
+
+   we are goign to build a database website using .NET Core 
+   
+     Caution ==> use .NET Core 2.1 (Stable) and libraries 2.1.1
+
+
+     additional projects itemds to consider 
+
+
+         wwwroot folder contains all publicly available files
+           css  eg. bootstap.css
+           JS
+           Images
+
+
+           Startup.cs
+
+              This is equivalent of our Main() method ie Start website
+
+              Services
+
+                 Background items   eg a) Database b) 3rd Party authentication
+
+                                eg   Google authentication
+
+
+#Controllers and putting data on a page
+
+   with razor syntax we can use C# in the browser
+
+
+   @......html
+
+   <p>Some data recieved from the back end is @ViewBag.MyItem and also
+       @ViewData["AnotherItem"]</p>
+
+   ''''''cs
+
+     public IActionResult MyAction() 
+        {
+            ViewBag.MyItem = "This is some data";
+            ViewData["AnotherItem"] = "\nThis is also some data";
+            return View();
+        }
+
+   ''''''  
+
+
+   Making a list
+
+cs code ...
+
+
+....
+
+
+In Razor page we access data Importing model
+
+//Using statement ie importing this model
+@model Lab_27_mvc_core_controllers.homecontroller
+
+// @Model - fetch data
+@foreach(var item in MODEL.mylist2)
+{
+	<li>item</li>
+} 
+
+
+
+
+
+
+        
+

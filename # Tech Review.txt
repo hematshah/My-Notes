@@ -1,0 +1,39 @@
+# Tech Review
+
+Agile : imbraces Change
+Watetfall : Linear, fixed model : good for smaller projects, repeatable projects
+ewg in manufacturing, construction
+V-model : extension to waterfall : mission critical where perhaps life is at stake so extra
+testing is vital : heavy industry 
+
+events 
+delegates: 
+Delegate instance += method
+Declare 
+
+CRUD
+Event: EXTERNAL INTERACTION (External to the program)
+           USER EVENTS EG BUTTON CLICK/DOUBLECLICK/MOUSECLICK/ MOUSeENTER/ MOUSELEAVE
+           DATA EVENTS EG DATA ONSTART, ONCONTINUE, ONEND
+
+
+               % COMPLETE BAR
+                HTTP : // GET DATA
+
+                   REQUEST => CLIENT => SERVER
+                   RESPONSE   SERVER => CLIENT
+
+                   FETCH (URL)
+                       THEN (CALLBACKFUNCTION)
+                       THEN 
+
+
+REF  use to this to pass primitive type use this to pass primitive type into a method and retreat it like a global variable
+
+          a global variable 
+
+             int  x=10;
+                DoThis(ref int x){... alter x as a GLOBAL VARIABLE}
+ PRIMITIVE : in me
+ 
+                

@@ -1,0 +1,49 @@
+# syntax FM prodcast    |
+# .net rocks            |    
+# daily prodcast .net   |
+# darknet dairies       |
+
+
+# Async and Await
+
+before we procedd with http calls
+
+
+
+
+
+
+# seriaslisation 
+
+when we serialise data for transmission across the internet we can serialise in 3 ways
+1) binary
+2) xml
+3) jason
+using system.components.dataAnnotation
+
+[Serialisation]
+
+ class Myclass{}
+
+     public string Name {get; set}
+     public int age{get;set;}
+
+
+     [nonSerialized]
+     private string NINO; <-- has to be a field in non serailize
+
+
+*****************************************************************************************************************************
+DLG Direct line
+     IBM
+     Cobol coding 
+     AS400
+     site relaibility engineer
+     Bromley
+*****************************************************************************************************************************
+
+
+
+
+
+

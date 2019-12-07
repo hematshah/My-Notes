@@ -1,0 +1,69 @@
+## Tasks And Threading
+
+MultiTreading
+Proccess
+Thread
+  (Sleep)
+Synchronous
+Asynchronous
+Task
+
+When we run a computer program, we run the Main THREAD. 
+THIS IS the SET OF CONTIOUS INSTRUCTIONS THAST ARE SENT TO THE CPU FOR PROCESSING.
+WE LOCK OPEN A COMMUNICTI0N CHANNEL WITH  THE CPU and call this a THREAD.
+
+THREAD SET OF INSTRUCTIONS SENT TO CPU FOR PROCESSIGN
+
+   MAIN THREAD : APPLICATION  
+
+
+   # SYNCHRONOUS PROGRAMMING 
+
+
+   .... is where we wait for previous instructions to complete  before moving forward
+
+   genarate a POOR USER EXPERIENCE PARTICULARY OVER WEB OR DATA CALLS WHERE TYPICALLY INT MICHT TAKE A FEW SECONDS TO GET THE DATA BACK 
+
+
+   # ASYNCHRONOUS PROGRAMMING
+
+   ... is where we use the power of the operating system to help us.
+
+
+   we generate a 
+
+     BACKGROUND TASK/THREAD
+      AND GIVE IT RESOURCES ALLOCATED BY THE OPARATING SYSTEM
+
+
+      MAIN THREAD CONTINUES QUICLY
+
+       BACKGROUND TASK COMPLETES AND WHEN IT DOES THE DATA IS RETURNED AND WE US THIS DATA (CALLBACK METHOD)
+
+
+       TYPICAL EXAMPLE: WEB
+
+
+        HttpRequest  ==> sent
+        RETURNED <==   HttpResponse
+
+
+        async GetData(){
+           await GetHttpResponseDataAsync();
+        }
+
+
+        we can also see this in MODERN JAVASCRIPT
+
+         OLD JAVASCRIPT : AJAX
+
+             RAW JAVASCRIPT : XMLHttpRequest returns data
+
+         MODERN JAVASCRIPT : FETCH  .CATCH  <-- SIMILAR TO TRY/CATCH IN C#
+
+         fetch('http://mydata.url')       //GET DATA
+          .then(process.data)             // IF SUCCESS
+          .catch(error)                   // IF FAIL
+
+
+

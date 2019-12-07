@@ -1,0 +1,221 @@
+# Delegates:
+
+delegates are youes in place of methods
+
+ We can call one methos directly
+
+ or 
+
+  we can  inintiate a delagate object (instance) a 
+  and inside this instance we can  place one or more methods
+
+
+   ==> so we can call delegate with bracket is my deleagete(); and this will call of the methods attached . in order .
+
+     myDelegate+=methods01;
+     myDelegate+=methods02;
+     myDelegate+=methods03;
+     myDelegate+=methods04;
+
+        .........................Syntaxis NAMING THE ITEM BUT AS A PLACEHOLDER
+        ONLY.... WE ARE NOT CALING THE METHOD BY ADDING BRAXKETS()
+
+
+      delagete abject is a placeholder object to the point to one or more methods
+
+      why use delagATES?
+
+      1) EVENTS
+
+        Use delegates to SPECIFY THE PERIMETTED INPUT / OUTPUT PARAMETERS FOR
+         AN EVENT.
+
+         MYEVENT WISH TO CALL METHOD 01 02 03 BUT!!!! USE DELEAGETE OBJECTS TO SPECIFY INPUT/OUTPUT TYPES PREMMITTED (ALL BUT THE SAME)
+
+         EXAMPLE
+                           VOID METHOD01(INT X){}
+                           VOID METHOD02(INT X){}
+                           VOID METHOD03(INT X){}
+                           VOID METHOD04(INT X){}
+
+                           // CREATE MATCHING DELEGATE 
+
+                             DELEGATE VOID MYDELEGATE(INT X);
+
+                            // CREATE EVENT ... MATCHING A DELEGATE .....  EVENT NAME
+
+                               event            myDelegate                 MyEvent();
+
+
+        
+        Event  is now PRIMED
+        ACTIVATE EVENT WE NOW JUST CODE
+
+           MYEVENT();  ==> CALL ANY METHODS ATTRACHED
+
+           INITIALLY MyEvent IS NULL
+
+           MyEvent += METHOD01;  //RUN FIRST  
+            MyEvent += METHOD01;  //RUN second 
+             MyEvent += METHOD01;  //RUN thirds in orderly manner
+
+
+
+
+
+  ##### Events
+  
+     events are a way in computing of talking INPUT AS TRIGGERS
+
+        Usually can take them form screen OBJECT EG BUTTON CLICK , HOVER MOUSE, ETC
+
+                       DOUBLECLICK, KEYPRESS
+
+
+     WHEN EVENT FIRES, CALL ONE OR MORE METHODS
+     
+      EVENTS are VERY USEFGUL IN MODERN COMPUTING  BECAUDER CAN LISTNE FOR THE ARRIVAL OR COMPLETION OF DATA
+
+
+      .........onDataStart........
+      .........onDataEnd..........
+
+                       ...............can trigger notifications
+
+        MOST COMMON EVENT IN OOP IS 
+        
+                        PRIVATE VOID BUTTON_CLICK(OBJECT SENDER, EVENTARGS E) {
+                            // DO THIS ON BUTTON CLICK
+                        }  
+
+
+
+      Sender = object (button) which eventt happend to eventArgs is a string [] array of data which can be fed in
+      with the event eg MOUSE X,Y COORDINATES
+
+
+      # Delagates enabling CALLBACK WITH ASYNCHRONOUS CODING
+
+         The second reason why delegates are very useful is that we can use Deleages As Objects to Pass As a Parameter in Another Method
+
+            we give this methodv a cspeciual name callback method
+
+
+               MyMethod(int x); // passing in an integer
+               MyMethods02(.... CAN WE PASS IN A METHOD HERE???.....)
+
+
+               BUT... When we do are doing ASYNCHRONOUS PROGRAMMING what we want to see is this 
+
+                MyAsyncMethod(int x, string y, delegate Mydaelegate){}
+
+     CALL METHOD PASS IN X, Y AND WHEN METHOD COMPLETES (AFTER TIME)
+      ALSO CALL METHOD PASSED IN 
+      {
+            //GO GET A PIZZA OF SIZE X AND EXTRAS Y
+            // WHEN PIZZA ARRIVES RUN OUR CALLBACK METHOD EATPIZZA
+      }
+
+
+
+      #### when do we use delegates?#
+
+
+      Delegates are used at RUNTIME to SWAP OUT RUNNIG CODE MODULES
+
+       EXAMPLE : Main Framework with Plugins
+
+          Runtime : download and install and add in plugins
+
+     As we have seen they are also useful in ASYNC CODE TO RUN A METHOD (CALLBACK)
+       WHEN YOUR ASYNC TASK COMPLETES
+
+     FINAL REASON IS ONE EVENT : ATTACH MULTIPLE METHODS BUT CAN SWAP METHODS IN/OUT LIVE AT
+     RUNTIME
+
+
+     ## also delegates can be usedf to call Anonymous Methods (using lambda) 
+      
+
+
+
+#### OOP Events
+
+  We have seen basic events but we also want to see how they work in a  OOP 
+
+
+  ###  WPF CRUD APP
+
+      GOAL today will be to build a database appliction
+
+          I'm not an expert but I can show you enough to get going
+
+    we're going to be using 
+
+          .NET framework (because WPF core  didn't have the same ease to use)
+
+      SQL  Raw to build database
+
+         Entity framework (EF6) for connection to database
+
+          panels to display data
+
+
+                ListView to display lists
+                TextBox to update data
+                Button to submit
+
+       CRUD IE list/ select/update/delete items 
+       
+         later on we can maybe add SECOND TABLE WITH FOREIGN KEYS and create some DROPDOWN BOXES TO SELECT FROM THESE ITEMS.
+
+
+
+
+#### entity
+
+Let's now pull in our new Database into our app
+entity (framework) ((EF6 for short)) makes this super easy.
+There are two ways to pull in the database
+
+     1) DATABASE FIRST : code has a read copy of the database entities
+     2) CODE FIRST  : CODSE becomes a master copy from which
+
+     commad localdb --> (localdb)\mssqllocaldb
+
+
+
+## Simple Listbox
+
+ Reading DATA BROM THE DATABASE
+ In our listbox we are listing strings not OBJECTS
+
+
+ ## prodcast --> highly recommended
+
+
+
+ #### test sql
+
+ function of insert into,
+ update 
+ delete
+ sum, min,avg,max, count
+ foreign keys
+ null, not null
+ IN, LIKE, wild card for single letter "_"
+ JOIN,
+ SELECT "column name" FROM Table INNER JOIN "another table name" ON 
+ drop database if not exists "database name"
+ trunkate command to delete the whole table 
+
+
+
+
+
+
+
+
+
+
+

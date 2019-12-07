@@ -1,0 +1,82 @@
+# HTML, CSS, JAVAScript notes continued
+
+
+Displayeing items on the streen
+
+   css display
+
+      display block; TAKES WHOLE width
+
+      div, p, h1      BLOCK ELEMENTS
+
+      DISPLAY: INLINE
+
+#####################################################################################################################################
+
+
+# ASP websites
+
+As we have said, raw HTML, CSS and Javascript are used all over the world.
+
+Also modern websites use NODEJS so that Javascript is running on the server and client 
+
+
+however microsoft have used a diffrent approach
+
+
+   client                          server
+
+                                      HTML/CSS/JS
+                                        .CS c sharp as well
+
+            <====================
+            HTML CSS JS (no C# at all)
+
+
+Aslo newer sites use .chtml   which merges HTML and C# using generate C# on a webpage
+   
+   (Razor)
+
+
+We can build  two types of websites
+
+  1) ASP regular website with regular links
+  2) MVC  wesite for handling data
+
+         model               data               eg CLass Customer{....}
+                                                     match  Database Customers
+                                                  DbSet<Customer> .......Customers
+                                                         class           Table in sql
+
+       View               Page
+
+       Controller          Inspect the URL to make a desision about the Incoming Request
+                           and what to do with it
+                             a)  which data to fetch
+                             b)  which view (page) user wants to see  (routing)
+
+
+                      https://mydomain.com/controller/action/id
+
+                                          /table     /get
+                                                     /post
+                                          /customer  /get
+                                          /products  /post 
+
+                        ....................Customers/          Get All Customers
+                                                     /Get   /1  Get Customer with ID=1
+                                                     /Post...    sending data
+                                                       {body: <Customers>}
+                                                          ==> Add New customers
+                                                     /POST/1
+                                                       {BODY:<Customer>}
+                                                          ==>Update where ID=1
+
+                                                     /GET/NAME      custom query by name
+                                                     /PUT           EDIT
+                                                     /DELETE        DELETE
+
+
+
+
+

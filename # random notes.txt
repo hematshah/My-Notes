@@ -1,0 +1,95 @@
+# random notes
+
+gardbarge collector
+
+manually disposing of items
+  in c# we dont  really 
+
+
+  in order to cleanly deal with these items we can manually tell the computer 'we are done'
+  1) easy way
+
+  using(){} statements
+  using(var db = ne northwind()) {
+  //  use database
+  } ===========================> tell computer 'we are done'
+  RUNTIME CAN NOW ERASE ALL INSTANCES FROM STACK /HEAP OF DATATBASE
+
+  2) HARD WAY
+
+  	Manually call  'dipose()' method in code
+
+  	class Myclass()
+  	{
+  	// constructor
+  	public Myclass(){}  // CONSTRUCTING AN INSTANCE
+  	MyClass(){ this.dispose();} // destructor / finaliser
+
+  	}
+
+  	class person{
+      public int height {get;set;}
+      public Person(int height){ this.Height = height};
+
+  	}
+  	var p = new person(2000);
+
+
+OOP
+inheritance : base parent => derived child
+Abstraction : access private fields via public properties
+Encapsulation : private fields lowerCase camelCase or _privateObject
+class
+      fields  private string _NINO;
+      property public int customerName{ get; set;}
+      method  void DoThis(){}
+
+Polymorphism : many forms 
+virual baseParent
+overide dirivedChild  OPTIONAL OVERRIDE
+
+override : SAME method diffrent code body IMPLEMENTATION
+                  virtual void Dothis(){.}        Base
+                  override void Dothis(){X} deriverd
+
+
+
+Overload : same method diffrent paramenters
+                    Dothis(){.}     Base
+                    Dothis(){X} deriverd
+
+Concrete class -- all members are present so its OK TO INSTANTIATE - var instance - new MyClass
+Sealed class - cannot derive any child classes (Used in the security so junior developer can't mess
+up existing good security code)  < -- Learn upto Line 63
+
+Abstract class - has one or more abstract methods CANNOT INSTANTIATE
+
+
+
+
+
+
+
+
+
+
+
+
+INTE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

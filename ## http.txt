@@ -1,0 +1,42 @@
+## http
+
+using .net we can read andf write to the web
+
+
+`WebClient` can be used to trivially dowload data
+
+lets begin  by just dowloading some files then we can move onto streaming 
+
+we can do this via SYNCHROMOUS AND ACHYNCHRONOUS
+
+SYNCHRONOUS : WAIT
+ASYNCH : DON'T WAIT BUT JUST LET DATA ARRIVE BUT IT DOES NOT 'HANG' OUR CODE
+
+WEB TERMS (NETWORKING!)
+
+IP ADDRESS  1.2.3.4        0<N<255
+PORT              CHANNEL FOR DATA TO FLOW DOWN TO IP
+                  2^16 PORTS = 65536
+CLIENT            MACHINE MAKING THE REQUEST 
+SERVER            MACHINE RESPONDING TO THE REQUEST
+URL               HTTPS:// LINK   UNIFORM RESOURCE LOCATOR
+URI               UNIFORM RESOURCE IDENTIFIER => (MORE SPECIFIC)
+ABSOLUTEPATH      FULL PATH HTTPS://MYDOMIAN/MYPAGE.HTML
+RELATIVEPATH      END PART  IE  MYPAGE.HTML
+HOST / HOSTNAME   NAME of the server on the machine   mycomputer
+
+COMMON PORTS      80: HTTP     UNENCRYPTED       
+                  443: HTTPS   ENCRYPTED
+                  22: SSH      LINUX SERVER
+                  25:  SMTP    EMAIL OUT
+                  110:  POP    EMAIL IN
+
+
+Proxy   agent ie we don't go directly
+
+          Client ================  Internet(normal)
+
+          Client  ==> Proxy ============= Internet
+
+
+## create a test who is the fifth charater                            
